@@ -14,10 +14,10 @@ class Spree::AdvancedReport::LocalTaxReport < Spree::AdvancedReport
     params[:advanced_reporting] ||= {}
 
     # default to report on shipped orders only
-    params[:advanced_reporting][:order_type] = 'shipped' if params[:advanced_reporting][:order_type].blank?
+    params[:advanced_reporting][:order_type] = 'completed' if params[:advanced_reporting][:order_type].blank?
 
     # default to exclude orders that are not fully shipped
-    params[:advanced_reporting][:shipment] = 'fully_shipped' if params[:advanced_reporting][:shipment].blank?
+    params[:advanced_reporting][:shipment] = '' if params[:advanced_reporting][:shipment].blank?
 
     # use taxable address as state filter
     params[:advanced_reporting][:state_based_on_taxable_address] = '1' if params[:advanced_reporting][:state_based_on_taxable_address].blank?
